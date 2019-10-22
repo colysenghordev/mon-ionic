@@ -1,0 +1,21 @@
+<ion-content class="background">
+  <form class="box" #form="ngForm" (submit)="onSubmit(form)">
+    <ion-grid>
+      <ion-row>
+        <ion-col>
+        </ion-col>
+        <ion-col col-6>
+          <div><img src="assets/imgs/academy-150x150.png"></div>
+        </ion-col>
+        <ion-col>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+
+    <h1>Identification</h1>
+    <input [(ngModel)]="loginUserData.username" type="text" name="username" placeholder="Username">
+    <input [(ngModel)]="loginUserData.password" type="password" name="password" placeholder="Password">
+    <input type="submit" name="" value="connexion">
+  </form>
+
+</ion-content>
