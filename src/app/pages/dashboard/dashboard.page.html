@@ -1,9 +1,29 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title>dashboard</ion-title>
+  <ion-toolbar color="duckcoin">
+    <ion-title size="large" color="primary" class="ion-text-center">Transactions</ion-title>
   </ion-toolbar>
 </ion-header>
-
-<ion-content>
-
+<ion-content class="ion-padding">
+  <ion-list>
+    <ion-list-header>
+      <ion-label>Veillez choisir la transaction </ion-label>
+    </ion-list-header>
+    <ion-item>
+      <ion-label>Opération à faire :</ion-label>
+      <ion-select value="brown" ok-text="Valider" cancel-text="Annuler">
+        <ion-select-option value="env">Envoi</ion-select-option>
+        <ion-select-option value="ret">retrait</ion-select-option>
+        <ion-select-option value="ret">Liste transactions</ion-select-option>
+      </ion-select>
+    </ion-item>
+  </ion-list>
 </ion-content>
+<ion-footer>
+  <ion-toolbar color="duckcoin">
+    <ion-row justify-content-center>
+      <ion-button (click)="logOut()" color="danger">
+        <ion-icon name="exit" size="large"></ion-icon>
+      </ion-button>
+    </ion-row>
+  </ion-toolbar>
+</ion-footer>

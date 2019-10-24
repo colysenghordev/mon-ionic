@@ -55,13 +55,9 @@ export class LoginPage implements OnInit {
   
     private newMethod() {
       this.roles=localStorage.getItem("roles");
-      if (this.roles =="ROLE_Super-Admin" ) {
+      if ((this.roles =="ROLE_Utilisateur simple" ) || (this.roles == "ROLE_Partenaire")){
         this.router.navigate(["/dashboard"]);
-      }
-      else if (this.roles == "ROLE_Partenaire") {
-        this.router.navigate(["/dashboard"])
-      }
     }
   
   }
-  
+} 

@@ -38,20 +38,20 @@ export class AuthService {
     this.roles = objJWT.roles;
   }
 
-  isAdmin() {
-    this.roles=localStorage.getItem("roles");
-    return this.roles.indexOf('ROLE_Super-Admin') >= 0;
-  }
-
   isPartenaire() {
     this.roles=localStorage.getItem("roles");
     return this.roles.indexOf('ROLE_Partenaire') >= 0;
   }
 
+  isUtilisateursimple() {
+    this.roles=localStorage.getItem("roles");
+    return this.roles.indexOf('ROLE_Utilisateur simple') >= 0;
+  }
+
   logOut() {
     localStorage.removeItem('token');
     this.initParams();
-    return this.router.navigate(["/home"]);
+    return this.router.navigate(["/login"]);
   }
 
   initParams() {

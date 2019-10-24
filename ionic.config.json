@@ -1,5 +1,7 @@
 {
   "name": "mon-ionic",
-  "integrations": {},
+  "integrations": {
+    "cordova": {}
+  },
   "type": "angular"
 }
