@@ -6,21 +6,160 @@
 <ion-content class="ion-padding">
   <ion-list>
     <ion-list-header>
-      <ion-label>Veillez choisir la transaction </ion-label>
+      <ion-label color="success">Veuillez choisir la transaction</ion-label>
     </ion-list-header>
     <ion-item>
       <ion-label>Opération à faire :</ion-label>
       <ion-select value="brown" ok-text="Valider" cancel-text="Annuler">
-        <ion-select-option value="env">Envoi</ion-select-option>
-        <ion-select-option value="ret">retrait</ion-select-option>
-        <ion-select-option value="ret">Liste transactions</ion-select-option>
+        <ion-select-option value="envoi">Envoi</ion-select-option>
+        <ion-select-option value="retrait">retrait</ion-select-option>
+        <ion-select-option value="liste">Liste transactions</ion-select-option>
       </ion-select>
     </ion-item>
   </ion-list>
+  <ion-toolbar color="primary">
+    <ion-title>
+      Remplir les champs
+    </ion-title>
+    <ion-buttons slot="start">
+      <ion-button (click)="prev()">
+        <ion-icon slot="start" name="arrow-back"></ion-icon> Prev
+      </ion-button>
+    </ion-buttons>
+    <ion-buttons slot="end">
+      <ion-button (click)="next()">Next <ion-icon slot="end" name="arrow-forward"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+  <ion-slides #signupSlider pager>
+    <ion-slide>
+      <p *ngIf="submitAttempt" style="color: #ea6153;">S'il vous plaît remplir tous les détails avec précision.</p>
+
+      <ion-list lines="none">
+        <form [formGroup]="slideOneForm">
+          <ion-item class="ion-text-center">
+            <ion-label>Envoyeur</ion-label>
+          </ion-item>
+          <ion-item>
+            <ion-label position="floating">Prénom</ion-label>
+            <ion-input formControlName="prenom" type="text"
+              [class.invalid]="!slideOneForm.controls.prenom.valid && (slideOneForm.controls.prenom.dirty || submitAttempt)">
+            </ion-input>
+          </ion-item>
+          <ion-item
+            *ngIf="!slideOneForm.controls.prenom.valid  && (slideOneForm.controls.prenom.dirty || submitAttempt)">
+            <p>Merci d'entrer un Prénom valide.</p>
+          </ion-item>
+          <ion-item>
+            <ion-label position="floating">Nom</ion-label>
+            <ion-input formControlName="nom" type="text"
+              [class.invalid]="!slideOneForm.controls.nom.valid && (slideOneForm.controls.nom.dirty || submitAttempt)">
+            </ion-input>
+          </ion-item>
+          <ion-item *ngIf="!slideOneForm.controls.nom.valid  && (slideOneForm.controls.nom.dirty || submitAttempt)">
+            <p>Merci d'entrer un Nom valide.</p>
+          </ion-item>
+          <ion-item>
+            <ion-label position="floating">Téléphone</ion-label>
+            <ion-input formControlName="telephone" type="number"
+              [class.invalid]="!slideOneForm.controls.telephone.valid && (slideOneForm.controls.telephone.dirty || submitAttempt)">
+            </ion-input>
+            <ion-item
+              *ngIf="!slideOneForm.controls.telephone.valid  && (slideOneForm.controls.telephone.dirty || submitAttempt)">
+              <p>Merci d'entrer n° de Téléphone valide.</p>
+            </ion-item>
+          </ion-item>
+          <ion-item>
+            <ion-label position="floating">N° CNI</ion-label>
+            <ion-input formControlName="cni" type="number"
+              [class.invalid]="!slideOneForm.controls.cni.valid && (slideOneForm.controls.cni.dirty || submitAttempt)">
+            </ion-input>
+            <ion-item *ngIf="!slideOneForm.controls.cni.valid  && (slideOneForm.controls.cni.dirty || submitAttempt)">
+              <p>Merci d'entrer un N° CNI valide.</p>
+            </ion-item>
+          </ion-item>
+        </form>
+      </ion-list>
+    </ion-slide>
+    <ion-slide>
+      <ion-list lines="none">
+        <form [formGroup]="slideTwoForm">
+          <ion-item class="ion-text-center">
+            <ion-label>Destinataire</ion-label>
+          </ion-item>
+          <ion-item>
+            <ion-label position="floating">Prénom</ion-label>
+            <ion-input formControlName="prenom" type="text"
+              [class.invalid]="!slideOneForm.controls.prenom.valid && (slideOneForm.controls.prenom.dirty || submitAttempt)">
+            </ion-input>
+          </ion-item>
+          <ion-item
+            *ngIf="!slideOneForm.controls.prenom.valid  && (slideOneForm.controls.prenom.dirty || submitAttempt)">
+            <p>Merci d'entrer un Prénom valide.</p>
+          </ion-item>
+          <ion-item>
+            <ion-label position="floating">Nom</ion-label>
+            <ion-input formControlName="nom" type="text"
+              [class.invalid]="!slideOneForm.controls.nom.valid && (slideOneForm.controls.nom.dirty || submitAttempt)">
+            </ion-input>
+          </ion-item>
+          <ion-item *ngIf="!slideOneForm.controls.nom.valid  && (slideOneForm.controls.nom.dirty || submitAttempt)">
+            <p>Merci d'entrer un Nom valide.</p>
+          </ion-item>
+          <ion-item>
+            <ion-label position="floating">Téléphone</ion-label>
+            <ion-input formControlName="telephone" type="number"
+              [class.invalid]="!slideOneForm.controls.telephone.valid && (slideOneForm.controls.telephone.dirty || submitAttempt)">
+            </ion-input>
+            <ion-item
+              *ngIf="!slideOneForm.controls.telephone.valid  && (slideOneForm.controls.telephone.dirty || submitAttempt)">
+              <p>Merci d'entrer n° de Téléphone valide.</p>
+            </ion-item>
+          </ion-item>
+          <ion-item>
+            <ion-label position="floating">N° CNI</ion-label>
+            <ion-input formControlName="cni" type="number"
+              [class.invalid]="!slideOneForm.controls.cni.valid && (slideOneForm.controls.cni.dirty || submitAttempt)">
+            </ion-input>
+            <ion-item *ngIf="!slideOneForm.controls.cni.valid  && (slideOneForm.controls.cni.dirty || submitAttempt)">
+              <p>Merci d'entrer un N° CNI valide.</p>
+            </ion-item>
+          </ion-item>
+        </form>
+      </ion-list>
+    </ion-slide>
+    <ion-slide>
+      <ion-list lines="none">
+        <form [formGroup]="slideThreeForm">
+          <ion-item class="ion-text-center">
+            <ion-label>Transfert</ion-label>
+          </ion-item>
+          <ion-item>
+            <ion-label position="floating">Montant</ion-label>
+            <ion-input formControlName="montant" type="number" [class.invalid]="!slideThreeForm.controls.montant.valid && (slideThreeForm.controls.montant.dirty || submitAttempt)">
+            </ion-input>
+            <ion-item *ngIf="!slideThreeForm.controls.montant.valid  && (slideThreeForm.controls.montant.dirty || submitAttempt)">
+              <p>Merci d'entrer un Montant valide.</p>
+            </ion-item>
+          </ion-item>
+          <ion-item>
+            <ion-label position="floating">Frais</ion-label>
+            <ion-input formControlName="frais" type="number"
+              [class.invalid]="!slideThreeForm.controls.frais.valid && (slideThreeForm.controls.frais.dirty || submitAttempt)">
+            </ion-input>
+            <ion-item *ngIf="!slideThreeForm.controls.frais.valid  && (slideThreeForm.controls.frais.dirty || submitAttempt)">
+              <p>Merci d'entrer les frais valide.</p>
+            </ion-item>
+          </ion-item>
+        </form>
+        <ion-button expand="full" color="success" (click)="save()">Envoyer</ion-button>
+      </ion-list>
+    </ion-slide>
+  </ion-slides>
 </ion-content>
 <ion-footer>
   <ion-toolbar color="duckcoin">
-    <ion-row justify-content-center>
+    <ion-row class="ion-justify-content-center">
       <ion-button (click)="logOut()" color="danger">
         <ion-icon name="exit" size="large"></ion-icon>
       </ion-button>
